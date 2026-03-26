@@ -1,0 +1,38 @@
+{
+  "name": "hostel-management-system",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "init-db": "node init-db.js",
+    "init-comprehensive": "node init-comprehensive-db.js",
+    "seed": "curl -X POST http://localhost:3000/api/seed/comprehensive",
+    "seed-db": "node seed-database.js"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.0.1",
+    "bcryptjs": "^2.4.3",
+    "cookie": "^1.1.1",
+    "jsonwebtoken": "^9.0.2",
+    "lucide-react": "^0.292.0",
+    "mongoose": "^8.0.0",
+    "next": "14.0.0",
+    "postcss": "^8",
+    "react": "^18",
+    "react-dom": "^18",
+    "tailwindcss": "^3.3.0"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.0",
+    "typescript": "^5"
+  }
+}

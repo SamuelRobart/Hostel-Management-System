@@ -1,0 +1,260 @@
+'use client';
+import { useState, useEffect } from 'react';
+import { Building2, Users, MapPin, Phone, ArrowLeft } from 'lucide-react';
+import Link from 'next/link';
+
+interface HostelData {
+  _id: string;
+  name: string;
+  location: string;
+  totalCapacity: number;
+  currentOccupancy: number;
+  wardenName?: string;
+  wardenPhone?: string;
+}
+
+export default function HostelDetailsPage() {
+  const [hostels, setHostels] = useState<HostelData[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const mockHostels: HostelData[] = [
+      // GIRLS HOSTELS (7)
+      { _id: '1', name: 'Social Justice Hostel - Girls', location: 'Perur', totalCapacity: 50, currentOccupancy: 38, wardenName: 'Ms. Kamala Devi', wardenPhone: '9876543210' },
+      { _id: '2', name: 'Social Justice Hostel - Girls', location: 'Singanallur', totalCapacity: 50, currentOccupancy: 42, wardenName: 'Ms. Meena Kumari', wardenPhone: '9876543211' },
+      { _id: '3', name: 'Social Justice Hostel - Girls', location: 'Peelamedu', totalCapacity: 50, currentOccupancy: 40, wardenName: 'Ms. Meera Bai', wardenPhone: '9876543212' },
+      { _id: '4', name: 'Social Justice Hostel - Girls', location: 'Goundampalayam', totalCapacity: 50, currentOccupancy: 36, wardenName: 'Ms. Radha Krishnan', wardenPhone: '9876543213' },
+      { _id: '5', name: 'Social Justice Hostel - Girls', location: 'Vellakinar', totalCapacity: 50, currentOccupancy: 45, wardenName: 'Ms. Saroja Devi', wardenPhone: '9876543214' },
+      { _id: '6', name: 'Social Justice Hostel - Girls', location: 'Nayakkanpalayam', totalCapacity: 50, currentOccupancy: 39, wardenName: 'Ms. Lakshmi Priya', wardenPhone: '9876543215' },
+      { _id: '7', name: 'Social Justice Hostel - Girls', location: 'Thondamuthur', totalCapacity: 50, currentOccupancy: 43, wardenName: 'Ms. Shanti Devi', wardenPhone: '9876543217' },
+      // BOYS HOSTELS (6)
+      { _id: '8', name: 'Social Justice Hostel - Boys', location: 'Kinathukadavu', totalCapacity: 50, currentOccupancy: 35, wardenName: 'Mr. Ravi Shankar', wardenPhone: '9876543220' },
+      { _id: '9', name: 'Social Justice Hostel - Boys', location: 'Masakkalipalayam', totalCapacity: 50, currentOccupancy: 41, wardenName: 'Mr. Raman Kumar', wardenPhone: '9876543218' },
+      { _id: '10', name: 'Social Justice Hostel - Boys', location: 'Ondipudur', totalCapacity: 50, currentOccupancy: 38, wardenName: 'Mr. Suresh Babu', wardenPhone: '9876543219' },
+      { _id: '11', name: 'Social Justice Hostel - Boys', location: 'Karamadai', totalCapacity: 50, currentOccupancy: 44, wardenName: 'Mr. Arun Kumar', wardenPhone: '9876543221' },
+      { _id: '12', name: 'Social Justice Hostel - Boys', location: 'Sulur', totalCapacity: 50, currentOccupancy: 37, wardenName: 'Mr. Murugan Raj', wardenPhone: '9876543222' },
+      { _id: '13', name: 'Social Justice Hostel - Boys', location: 'Pappanaickenpalayam', totalCapacity: 50, currentOccupancy: 46, wardenName: 'Mr. Prakash Kumar', wardenPhone: '9876543223' }
+    ];
+    
+    setTimeout(() => {
+      setHostels(mockHostels);
+      setLoading(false);
+    }, 1000);
+  }, []);
+
+  const totalCapacity = hostels.reduce((sum, hostel) => sum + hostel.totalCapacity, 0);
+  const totalOccupancy = hostels.reduce((sum, hostel) => sum + hostel.currentOccupancy, 0);
+  const totalVacancy = totalCapacity - totalOccupancy;
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto"></div>
+          <p className="mt-4 text-gray-600">Loading hostel details...</p>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <div className="bg-white shadow">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center py-6">
+            <div className="flex items-center">
+              <Link href="/" className="mr-4 text-purple-600 hover:text-purple-700">
+                <ArrowLeft className="h-6 w-6" />
+              </Link>
+              <h1 className="text-3xl font-bold text-gray-900">Hostel Details</h1>
+            </div>
+            <div className="text-sm text-gray-500">
+              Social Justice Department - Coimbatore
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Summary Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+          <div className="bg-white p-6 rounded-lg shadow">
+            <div className="flex items-center">
+              <Building2 className="h-8 w-8 text-purple-600" />
+              <div className="ml-4">
+                <p className="text-sm font-medium text-gray-500">Total Hostels</p>
+                <p className="text-2xl font-bold text-gray-900">{hostels.length}</p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow">
+            <div className="flex items-center">
+              <Users className="h-8 w-8 text-blue-600" />
+              <div className="ml-4">
+                <p className="text-sm font-medium text-gray-500">Total Capacity</p>
+                <p className="text-2xl font-bold text-gray-900">{totalCapacity}</p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow">
+            <div className="flex items-center">
+              <Users className="h-8 w-8 text-green-600" />
+              <div className="ml-4">
+                <p className="text-sm font-medium text-gray-500">Current Occupancy</p>
+                <p className="text-2xl font-bold text-gray-900">{totalOccupancy}</p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow">
+            <div className="flex items-center">
+              <Users className="h-8 w-8 text-orange-600" />
+              <div className="ml-4">
+                <p className="text-sm font-medium text-gray-500">Available Vacancy</p>
+                <p className="text-2xl font-bold text-gray-900">{totalVacancy}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Girls Hostels */}
+        <div className="bg-white shadow rounded-lg mb-8">
+          <div className="px-6 py-4 border-b border-gray-200 bg-pink-50">
+            <h2 className="text-xl font-bold text-gray-900">Girls College Hostels (7)</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+            {hostels.filter(hostel => hostel.name.includes('Girls')).map((hostel) => {
+              const occupancyPercentage = ((hostel.currentOccupancy / hostel.totalCapacity) * 100).toFixed(1);
+              const vacancy = hostel.totalCapacity - hostel.currentOccupancy;
+              
+              return (
+                <Link key={hostel._id} href={`/hostel-details/${hostel.location.toLowerCase()}`} className="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow cursor-pointer">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-lg font-semibold text-gray-900">Social Justice Hostel</h3>
+                    <span className={`px-3 py-1 text-sm rounded-full ${
+                      parseFloat(occupancyPercentage) > 90 
+                        ? 'bg-red-100 text-red-800' 
+                        : parseFloat(occupancyPercentage) > 75 
+                        ? 'bg-yellow-100 text-yellow-800' 
+                        : 'bg-green-100 text-green-800'
+                    }`}>
+                      {occupancyPercentage}% Full
+                    </span>
+                  </div>
+                  
+                  <div className="space-y-3">
+                    <div className="flex items-center text-gray-600">
+                      <MapPin className="h-4 w-4 mr-2" />
+                      <span>{hostel.location}</span>
+                    </div>
+                    
+                    <div className="grid grid-cols-3 gap-4 text-center">
+                      <div>
+                        <p className="text-sm text-gray-500">Capacity</p>
+                        <p className="font-semibold">{hostel.totalCapacity}</p>
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-500">Occupied</p>
+                        <p className="font-semibold text-blue-600">{hostel.currentOccupancy}</p>
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-500">Vacancy</p>
+                        <p className="font-semibold text-green-600">{vacancy}</p>
+                      </div>
+                    </div>
+                    
+                    <div className="pt-2">
+                      <p className="text-sm text-gray-600 mb-2">Warden: {hostel.wardenName}</p>
+                      <div className="bg-gray-200 rounded-full h-3">
+                        <div 
+                          className={`h-3 rounded-full ${
+                            parseFloat(occupancyPercentage) > 90 
+                              ? 'bg-red-500' 
+                              : parseFloat(occupancyPercentage) > 75 
+                              ? 'bg-yellow-500' 
+                              : 'bg-green-500'
+                          }`}
+                          style={{ width: `${occupancyPercentage}%` }}
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Boys Hostels */}
+        <div className="bg-white shadow rounded-lg">
+          <div className="px-6 py-4 border-b border-gray-200 bg-blue-50">
+            <h2 className="text-xl font-bold text-gray-900">Boys College Hostels (6)</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+            {hostels.filter(hostel => hostel.name.includes('Boys')).map((hostel) => {
+              const occupancyPercentage = ((hostel.currentOccupancy / hostel.totalCapacity) * 100).toFixed(1);
+              const vacancy = hostel.totalCapacity - hostel.currentOccupancy;
+              
+              return (
+                <Link key={hostel._id} href={`/hostel-details/${hostel.location.toLowerCase()}`} className="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow cursor-pointer">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-lg font-semibold text-gray-900">Social Justice Hostel</h3>
+                    <span className={`px-3 py-1 text-sm rounded-full ${
+                      parseFloat(occupancyPercentage) > 90 
+                        ? 'bg-red-100 text-red-800' 
+                        : parseFloat(occupancyPercentage) > 75 
+                        ? 'bg-yellow-100 text-yellow-800' 
+                        : 'bg-green-100 text-green-800'
+                    }`}>
+                      {occupancyPercentage}% Full
+                    </span>
+                  </div>
+                  
+                  <div className="space-y-3">
+                    <div className="flex items-center text-gray-600">
+                      <MapPin className="h-4 w-4 mr-2" />
+                      <span>{hostel.location}</span>
+                    </div>
+                    
+                    <div className="grid grid-cols-3 gap-4 text-center">
+                      <div>
+                        <p className="text-sm text-gray-500">Capacity</p>
+                        <p className="font-semibold">{hostel.totalCapacity}</p>
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-500">Occupied</p>
+                        <p className="font-semibold text-blue-600">{hostel.currentOccupancy}</p>
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-500">Vacancy</p>
+                        <p className="font-semibold text-green-600">{vacancy}</p>
+                      </div>
+                    </div>
+                    
+                    <div className="pt-2">
+                      <p className="text-sm text-gray-600 mb-2">Warden: {hostel.wardenName}</p>
+                      <div className="bg-gray-200 rounded-full h-3">
+                        <div 
+                          className={`h-3 rounded-full ${
+                            parseFloat(occupancyPercentage) > 90 
+                              ? 'bg-red-500' 
+                              : parseFloat(occupancyPercentage) > 75 
+                              ? 'bg-yellow-500' 
+                              : 'bg-green-500'
+                          }`}
+                          style={{ width: `${occupancyPercentage}%` }}
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
