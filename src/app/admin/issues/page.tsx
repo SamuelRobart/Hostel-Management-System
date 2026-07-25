@@ -79,8 +79,10 @@ export default function AdminIssues() {
   };
 
   const getUniqueHostels = () => {
-    const hostels = issues.map(issue => issue.studentId?.hostelLocation).filter(Boolean);
-    return [...new Set(hostels)];
+    const hostels = issues
+      .map(issue => issue.studentId?.hostelLocation)
+      .filter((loc): loc is string => !!loc);
+    return Array.from(new Set(hostels));
   };
 
   const getStatusColor = (status: string) => {
