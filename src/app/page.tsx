@@ -314,12 +314,9 @@ export default function Home() {
 
         {/* Footer */}
         <div className="text-center mt-16">
-          <div className="flex items-center justify-center gap-2 text-gray-500 mb-2">
-            <Heart className="w-4 h-4 text-red-400" />
-            <span>Serving the students of Tamil Nadu</span>
-          </div>
+          
           <p className="text-gray-500">
-            © 2024 District Backward Classes Welfare Department, Government of Tamil Nadu
+            © 2026 Elite Hostel
           </p>
         </div>
       </div>
