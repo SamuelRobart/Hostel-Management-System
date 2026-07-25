@@ -16,3 +16,7 @@ dist/
 # OS generated files
 .DS_Store
 Thumbs.db
+
+# Seed and Admin Setup
+seed-database.js
+ADMIN_SETUP.md
