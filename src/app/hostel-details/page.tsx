@@ -20,20 +20,21 @@ export default function HostelDetailsPage() {
   useEffect(() => {
     const mockHostels: HostelData[] = [
       // GIRLS HOSTELS (7)
-      { _id: '1', name: 'Social Justice Hostel - Girls', location: 'Perur', totalCapacity: 50, currentOccupancy: 38, wardenName: 'Ms. Kamala Devi', wardenPhone: '9876543210' },
-      { _id: '2', name: 'Social Justice Hostel - Girls', location: 'Singanallur', totalCapacity: 50, currentOccupancy: 42, wardenName: 'Ms. Meena Kumari', wardenPhone: '9876543211' },
-      { _id: '3', name: 'Social Justice Hostel - Girls', location: 'Peelamedu', totalCapacity: 50, currentOccupancy: 40, wardenName: 'Ms. Meera Bai', wardenPhone: '9876543212' },
-      { _id: '4', name: 'Social Justice Hostel - Girls', location: 'Goundampalayam', totalCapacity: 50, currentOccupancy: 36, wardenName: 'Ms. Radha Krishnan', wardenPhone: '9876543213' },
-      { _id: '5', name: 'Social Justice Hostel - Girls', location: 'Vellakinar', totalCapacity: 50, currentOccupancy: 45, wardenName: 'Ms. Saroja Devi', wardenPhone: '9876543214' },
-      { _id: '6', name: 'Social Justice Hostel - Girls', location: 'Nayakkanpalayam', totalCapacity: 50, currentOccupancy: 39, wardenName: 'Ms. Lakshmi Priya', wardenPhone: '9876543215' },
-      { _id: '7', name: 'Social Justice Hostel - Girls', location: 'Thondamuthur', totalCapacity: 50, currentOccupancy: 43, wardenName: 'Ms. Shanti Devi', wardenPhone: '9876543217' },
-      // BOYS HOSTELS (6)
-      { _id: '8', name: 'Social Justice Hostel - Boys', location: 'Kinathukadavu', totalCapacity: 50, currentOccupancy: 35, wardenName: 'Mr. Ravi Shankar', wardenPhone: '9876543220' },
-      { _id: '9', name: 'Social Justice Hostel - Boys', location: 'Masakkalipalayam', totalCapacity: 50, currentOccupancy: 41, wardenName: 'Mr. Raman Kumar', wardenPhone: '9876543218' },
-      { _id: '10', name: 'Social Justice Hostel - Boys', location: 'Ondipudur', totalCapacity: 50, currentOccupancy: 38, wardenName: 'Mr. Suresh Babu', wardenPhone: '9876543219' },
-      { _id: '11', name: 'Social Justice Hostel - Boys', location: 'Karamadai', totalCapacity: 50, currentOccupancy: 44, wardenName: 'Mr. Arun Kumar', wardenPhone: '9876543221' },
-      { _id: '12', name: 'Social Justice Hostel - Boys', location: 'Sulur', totalCapacity: 50, currentOccupancy: 37, wardenName: 'Mr. Murugan Raj', wardenPhone: '9876543222' },
-      { _id: '13', name: 'Social Justice Hostel - Boys', location: 'Pappanaickenpalayam', totalCapacity: 50, currentOccupancy: 46, wardenName: 'Mr. Prakash Kumar', wardenPhone: '9876543223' }
+      { _id: '1', name: 'Elite Hostel - Girls', location: 'Chennai', totalCapacity: 50, currentOccupancy: 38, wardenName: 'Mrs. Kamala Devi', wardenPhone: '9876543200' },
+      { _id: '2', name: 'Elite Hostel - Girls', location: 'Bangalore', totalCapacity: 50, currentOccupancy: 42, wardenName: 'Mrs. Priya Lakshmi', wardenPhone: '9876543205' },
+      { _id: '3', name: 'Elite Hostel - Girls', location: 'Trichy', totalCapacity: 50, currentOccupancy: 40, wardenName: 'Mrs. Meena Kumari', wardenPhone: '9876543210' },
+      { _id: '4', name: 'Elite Hostel - Girls', location: 'Coimbatore', totalCapacity: 50, currentOccupancy: 36, wardenName: 'Mrs. Geetha Rani', wardenPhone: '9876543215' },
+      { _id: '5', name: 'Elite Hostel - Girls', location: 'Hyderabad', totalCapacity: 50, currentOccupancy: 45, wardenName: 'Mrs. Meera Bai', wardenPhone: '9876543220' },
+      { _id: '6', name: 'Elite Hostel - Girls', location: 'Ernakulam', totalCapacity: 50, currentOccupancy: 39, wardenName: 'Mrs. Shanthi Kumar', wardenPhone: '9876543225' },
+      { _id: '7', name: 'Elite Hostel - Girls', location: 'Mysuru', totalCapacity: 50, currentOccupancy: 43, wardenName: 'Mrs. Radha Krishnan', wardenPhone: '9876543230' },
+      // BOYS HOSTELS (7)
+      { _id: '8', name: 'Elite Hostel - Boys', location: 'Chennai', totalCapacity: 50, currentOccupancy: 35, wardenName: 'Mr. Ravi Shankar', wardenPhone: '9876543235' },
+      { _id: '9', name: 'Elite Hostel - Boys', location: 'Bangalore', totalCapacity: 50, currentOccupancy: 41, wardenName: 'Mr. Sanjay Sharma', wardenPhone: '9876543240' },
+      { _id: '10', name: 'Elite Hostel - Boys', location: 'Madurai', totalCapacity: 50, currentOccupancy: 38, wardenName: 'Mr. Raman Kumar', wardenPhone: '9876543245' },
+      { _id: '11', name: 'Elite Hostel - Boys', location: 'Kanniyakumari', totalCapacity: 50, currentOccupancy: 44, wardenName: 'Mr. Vikram Singh', wardenPhone: '9876543250' },
+      { _id: '12', name: 'Elite Hostel - Boys', location: 'Kochin', totalCapacity: 50, currentOccupancy: 37, wardenName: 'Mr. Suresh Babu', wardenPhone: '9876543255' },
+      { _id: '13', name: 'Elite Hostel - Boys', location: 'Trivandrum', totalCapacity: 50, currentOccupancy: 46, wardenName: 'Mr. Ajay Kumar', wardenPhone: '9876543260' },
+      { _id: '14', name: 'Elite Hostel - Boys', location: 'Mangalore', totalCapacity: 50, currentOccupancy: 40, wardenName: 'Mr. Arun Kumar', wardenPhone: '9876543265' }
     ];
     
     setTimeout(() => {
@@ -69,7 +70,7 @@ export default function HostelDetailsPage() {
               <h1 className="text-3xl font-bold text-gray-900">Hostel Details</h1>
             </div>
             <div className="text-sm text-gray-500">
-              Social Justice Department - Coimbatore
+              Elite Hostel Group
             </div>
           </div>
         </div>
@@ -122,7 +123,7 @@ export default function HostelDetailsPage() {
         {/* Girls Hostels */}
         <div className="bg-white shadow rounded-lg mb-8">
           <div className="px-6 py-4 border-b border-gray-200 bg-pink-50">
-            <h2 className="text-xl font-bold text-gray-900">Girls College Hostels (7)</h2>
+            <h2 className="text-xl font-bold text-gray-900">Girls College Hostels ({hostels.filter(hostel => hostel.name.includes('Girls')).length})</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
             {hostels.filter(hostel => hostel.name.includes('Girls')).map((hostel) => {
@@ -132,7 +133,7 @@ export default function HostelDetailsPage() {
               return (
                 <Link key={hostel._id} href={`/hostel-details/${hostel.location.toLowerCase()}`} className="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow cursor-pointer">
                   <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-lg font-semibold text-gray-900">Social Justice Hostel</h3>
+                    <h3 className="text-lg font-semibold text-gray-900">Elite Hostel</h3>
                     <span className={`px-3 py-1 text-sm rounded-full ${
                       parseFloat(occupancyPercentage) > 90 
                         ? 'bg-red-100 text-red-800' 
@@ -190,7 +191,7 @@ export default function HostelDetailsPage() {
         {/* Boys Hostels */}
         <div className="bg-white shadow rounded-lg">
           <div className="px-6 py-4 border-b border-gray-200 bg-blue-50">
-            <h2 className="text-xl font-bold text-gray-900">Boys College Hostels (6)</h2>
+            <h2 className="text-xl font-bold text-gray-900">Boys College Hostels ({hostels.filter(hostel => hostel.name.includes('Boys')).length})</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
             {hostels.filter(hostel => hostel.name.includes('Boys')).map((hostel) => {
@@ -200,7 +201,7 @@ export default function HostelDetailsPage() {
               return (
                 <Link key={hostel._id} href={`/hostel-details/${hostel.location.toLowerCase()}`} className="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow cursor-pointer">
                   <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-lg font-semibold text-gray-900">Social Justice Hostel</h3>
+                    <h3 className="text-lg font-semibold text-gray-900">Elite Hostel</h3>
                     <span className={`px-3 py-1 text-sm rounded-full ${
                       parseFloat(occupancyPercentage) > 90 
                         ? 'bg-red-100 text-red-800' 

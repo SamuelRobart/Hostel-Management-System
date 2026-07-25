@@ -75,7 +75,7 @@ export default function StudentMenu() {
 
       <div className="max-w-6xl mx-auto px-4 py-8">
         <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-lg p-6 mb-8 border border-green-200">
-          <h2 className="text-2xl font-bold text-green-800 mb-2">Social Justice Department Hostel Menu</h2>
+          <h2 className="text-2xl font-bold text-green-800 mb-2">Elite Hostel Weekly Menu</h2>
           <p className="text-green-700">Nutritious meals prepared with care for all hostel residents</p>
         </div>
 

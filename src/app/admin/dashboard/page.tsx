@@ -123,7 +123,7 @@ export default function AdminDashboard() {
         // Transform the API response to match HostelData interface
         const formattedHostels = data.hostels.map((h: any, index: number) => ({
           _id: h._id || h.name, // Use _id if available, otherwise name
-          name: `Social Justice Hostel (${h.type === 'girls' ? 'Girls' : 'Boys'})`,
+          name: `Elite Hostel (${h.type === 'girls' ? 'Girls' : 'Boys'})`,
           location: h.name || h.location, // The collection name is the location/identifier here
           totalCapacity: h.capacity || h.totalCapacity,
           currentOccupancy: h.occupied || h.currentOccupancy,
@@ -236,7 +236,7 @@ export default function AdminDashboard() {
                   </span>
                 </h1>
                 <p className="text-sm text-gray-600 mt-1">
-                  Social Justice Department • Coimbatore District
+                  Elite Hostel Group • Government Certified
                 </p>
               </div>
               <div className="flex flex-wrap items-center gap-2">
@@ -404,7 +404,7 @@ export default function AdminDashboard() {
             {/* Girls Hostels */}
             <div className="bg-white shadow rounded-lg">
               <div className="px-6 py-4 border-b border-gray-200 bg-pink-50">
-                <h2 className="text-lg font-medium text-gray-900">Girls College Hostels (8)</h2>
+                <h2 className="text-lg font-medium text-gray-900">Girls College Hostels ({hostels.filter(hostel => hostel.name.includes('Girls')).length})</h2>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-6">
                 {hostels.filter(hostel => hostel.name.includes('Girls')).map((hostel) => {
@@ -418,7 +418,7 @@ export default function AdminDashboard() {
                       className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer"
                     >
                       <div className="flex items-center justify-between mb-3">
-                        <h3 className="text-sm font-semibold text-gray-900">SJ Hostel</h3>
+                        <h3 className="text-sm font-semibold text-gray-900">Elite Hostel</h3>
                         <span className={`px-2 py-1 text-xs rounded-full ${parseFloat(occupancyPercentage) > 90
                           ? 'bg-red-100 text-red-800'
                           : parseFloat(occupancyPercentage) > 75
@@ -474,7 +474,7 @@ export default function AdminDashboard() {
             {/* Boys Hostels */}
             <div className="bg-white shadow rounded-lg">
               <div className="px-6 py-4 border-b border-gray-200 bg-blue-50">
-                <h2 className="text-lg font-medium text-gray-900">Boys College Hostels (2)</h2>
+                <h2 className="text-lg font-medium text-gray-900">Boys College Hostels ({hostels.filter(hostel => hostel.name.includes('Boys')).length})</h2>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6">
                 {hostels.filter(hostel => hostel.name.includes('Boys')).map((hostel) => {
@@ -488,7 +488,7 @@ export default function AdminDashboard() {
                       className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer"
                     >
                       <div className="flex items-center justify-between mb-3">
-                        <h3 className="text-lg font-semibold text-gray-900">Social Justice Hostel</h3>
+                        <h3 className="text-lg font-semibold text-gray-900">Elite Hostel</h3>
                         <span className={`px-2 py-1 text-xs rounded-full ${parseFloat(occupancyPercentage) > 90
                           ? 'bg-red-100 text-red-800'
                           : parseFloat(occupancyPercentage) > 75
@@ -611,7 +611,7 @@ export default function AdminDashboard() {
                         className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 cursor-pointer hover:text-blue-600"
                         onClick={() => router.push(`/admin/hostels/${hostel._id}`)}
                       >
-                        Social Justice Hostel
+                        Elite Hostel
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                         {hostel.location}
@@ -661,7 +661,7 @@ export default function AdminDashboard() {
                     return (
                       <tr key={hostel._id} className="hover:bg-gray-50">
                         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                          Social Justice Hostel ({hostel.name.includes('Girls') ? 'Girls' : 'Boys'})
+                          Elite Hostel ({hostel.name.includes('Girls') ? 'Girls' : 'Boys'})
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                           {hostel.location}
@@ -1205,7 +1205,7 @@ export default function AdminDashboard() {
                     value={newHostel.name}
                     onChange={(e) => setNewHostel({ ...newHostel, name: e.target.value })}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                    placeholder="Social Justice Hostel"
+                    placeholder="Elite Hostel"
                     required
                   />
                 </div>

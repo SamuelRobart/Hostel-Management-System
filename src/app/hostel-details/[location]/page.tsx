@@ -14,7 +14,7 @@ export default function IndividualHostelPage() {
   useEffect(() => {
     const mockData: any = {
       perur: {
-        name: 'Social Justice Hostel (Girls)',
+        name: 'Elite Hostel - Girls',
         location: 'Perur',
         totalCapacity: 70,
         currentOccupancy: 52,
@@ -28,7 +28,7 @@ export default function IndividualHostelPage() {
         description: 'Modern hostel facility with all amenities for comfortable stay.'
       },
       goundampalayam: {
-        name: 'Social Justice Hostel (Girls)',
+        name: 'Elite Hostel - Girls',
         location: 'Goundampalayam',
         totalCapacity: 65,
         currentOccupancy: 48,
@@ -42,7 +42,7 @@ export default function IndividualHostelPage() {
         description: 'Well-maintained hostel with excellent facilities and security.'
       },
       nayakkanpalayam: {
-        name: 'Social Justice Hostel (Girls)',
+        name: 'Elite Hostel - Girls',
         location: 'Nayakkanpalayam',
         totalCapacity: 65,
         currentOccupancy: 47,
@@ -118,7 +118,7 @@ export default function IndividualHostelPage() {
               
               <div className="flex items-center text-gray-600 mb-2">
                 <MapPin className="h-5 w-5 mr-2" />
-                <span>{hostelData.location}, Coimbatore</span>
+                <span>{hostelData.location}</span>
               </div>
               
               <div className="flex items-center text-gray-600">

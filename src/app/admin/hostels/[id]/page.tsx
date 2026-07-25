@@ -108,7 +108,7 @@ export default function HostelDetailPage() {
             </Link>
             <div>
               <h1 className="text-3xl font-bold text-gray-900">{hostel.name}</h1>
-              <p className="text-gray-600 mt-1">{hostel.location} • Social Justice Department</p>
+              <p className="text-gray-600 mt-1">{hostel.location} • Elite Hostel Group</p>
             </div>
           </div>
         </div>

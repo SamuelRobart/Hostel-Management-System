@@ -82,7 +82,7 @@ export default function LogoutPage() {
           )}
         </div>
         <p className="text-center text-sm text-gray-500 mt-6">
-          Social Justice Department • Government of Tamil Nadu
+          Elite Hostel Group • Government Certified
         </p>
       </div>
     </div>
