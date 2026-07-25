@@ -36,7 +36,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Check if bed is available
-    const bed = room.beds.find(b => b.bedNumber === bedNumber);
+    const bed = room.beds.find((b: any) => b.bedNumber === bedNumber);
     if (!bed) {
       return NextResponse.json(
         { success: false, error: 'Bed not found' },
@@ -55,7 +55,7 @@ export async function POST(request: NextRequest) {
     if (student.roomId) {
       const prevRoom = await Room.findById(student.roomId);
       if (prevRoom) {
-        const prevBed = prevRoom.beds.find(b => b.studentId?.toString() === studentId);
+        const prevBed = prevRoom.beds.find((b: any) => b.studentId?.toString() === studentId);
         if (prevBed) {
           prevBed.isOccupied = false;
           prevBed.studentId = undefined;
@@ -146,7 +146,7 @@ export async function DELETE(request: NextRequest) {
     }
 
     // Unassign bed
-    const bed = room.beds.find(b => b.studentId?.toString() === studentId);
+    const bed = room.beds.find((b: any) => b.studentId?.toString() === studentId);
     if (bed) {
       bed.isOccupied = false;
       bed.studentId = undefined;

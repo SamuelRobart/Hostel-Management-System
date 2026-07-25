@@ -33,6 +33,7 @@ export async function GET(request: NextRequest) {
       const collectionName = `students_${location}`;
       
       try {
+        if (!mongoose.connection.db) continue;
         const collections = await mongoose.connection.db.listCollections({ name: collectionName }).toArray();
         if (collections.length === 0) continue;
         
@@ -62,7 +63,7 @@ export async function GET(request: NextRequest) {
       found: false,
       message: `Phone ${phone} not found in any collection`
     });
-  } catch (error) {
+  } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

@@ -81,7 +81,7 @@ export async function GET() {
       message: `Added ${totalAdded} students to 3 hostels`,
       hostels: hostels.map(h => h.location)
     });
-  } catch (error) {
+  } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

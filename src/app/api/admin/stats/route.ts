@@ -8,7 +8,7 @@ export async function GET() {
     await connectToDatabase();
 
     // Fetch hostels from database
-    const hostelsData = await Hostel.find({}).lean();
+    const hostelsData = (await Hostel.find({}).lean()) as any[];
 
     const hostels = [];
     const mongoose = require('mongoose');

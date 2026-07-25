@@ -60,9 +60,9 @@ export const PATCH = async (req: NextRequest, { params }: { params: { id: string
           }
         }
 
-        const updatedIssue = await Issue.findByIdAndUpdate(params.id, updateData, {
+        const updatedIssue = (await Issue.findByIdAndUpdate(params.id, updateData, {
           new: true,
-        }).lean();
+        }).lean()) as any;
 
         return successResponse(
           {

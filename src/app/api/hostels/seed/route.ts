@@ -23,6 +23,9 @@ const studentSchema = new mongoose.Schema({
 export async function POST() {
   try {
     await connectToDatabase();
+    if (!mongoose.connection.db) {
+      return NextResponse.json({ error: 'Database connection not ready' }, { status: 500 });
+    }
     
     const hostels = [
       // GIRLS HOSTELS (7)

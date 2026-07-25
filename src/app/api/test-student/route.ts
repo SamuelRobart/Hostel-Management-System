@@ -60,7 +60,7 @@ export async function POST() {
         note: 'Use these exact credentials for student login'
       }
     });
-  } catch (error) {
+  } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

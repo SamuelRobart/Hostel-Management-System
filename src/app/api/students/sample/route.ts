@@ -31,6 +31,7 @@ export async function GET() {
       const collectionName = `students_${location}`;
       
       try {
+        if (!mongoose.connection.db) continue;
         const collections = await mongoose.connection.db.listCollections({ name: collectionName }).toArray();
         if (collections.length === 0) continue;
         

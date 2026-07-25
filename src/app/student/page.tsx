@@ -34,7 +34,7 @@ export default function StudentPage() {
       } else {
         alert(data.message);
       }
-    } catch (error) {
+    } catch (error: any) {
       if (error.name === 'AbortError') {
         alert('Login timeout. Please try again.');
       } else {
