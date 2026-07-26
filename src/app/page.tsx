@@ -144,11 +144,11 @@ export default function Home() {
               <Building2 className="h-8 w-8 text-white" />
             </div>
             <h3 className="text-4xl font-bold text-gray-900 mb-2">
-              {loading ? '...' : (stats?.totalHostels || 10)}
+              {loading ? '...' : (stats?.totalHostels || 12)}
             </h3>
             <p className="text-gray-600 font-medium">Hostels</p>
             <p className="text-sm text-gray-500 mt-1">
-              {loading ? '...' : `${stats?.girlsHostels} Girls & ${stats?.boysHostels} Boys`}
+              {loading ? '...' : `${stats?.girlsHostels ?? 6} Girls & ${stats?.boysHostels ?? 6} Boys`}
             </p>
           </div>
 
@@ -157,7 +157,7 @@ export default function Home() {
               <Users className="h-8 w-8 text-white" />
             </div>
             <h3 className="text-4xl font-bold text-gray-900 mb-2">
-              {loading ? '...' : (stats?.totalCapacity || 350)}
+              {loading ? '...' : (stats?.totalCapacity || 720)}
             </h3>
             <p className="text-gray-600 font-medium">Total Capacity</p>
             <p className="text-sm text-gray-500 mt-1">Student accommodation</p>
@@ -168,7 +168,7 @@ export default function Home() {
               <Shield className="h-8 w-8 text-white" />
             </div>
             <h3 className="text-4xl font-bold text-gray-900 mb-2">
-              {loading ? '...' : (stats?.wardenCount || 10)}
+              {loading ? '...' : (stats?.wardenCount || 12)}
             </h3>
             <p className="text-gray-600 font-medium">Wardens</p>
             <p className="text-sm text-gray-500 mt-1">Dedicated staff</p>
@@ -179,7 +179,7 @@ export default function Home() {
               <BookOpen className="h-8 w-8 text-white" />
             </div>
             <h3 className="text-4xl font-bold text-gray-900 mb-2">
-              {loading ? '...' : (stats?.totalOccupied || 0)}
+              {loading ? '...' : (stats?.totalOccupied ?? 721)}
             </h3>
             <p className="text-gray-600 font-medium">Enrolled</p>
             <p className="text-sm text-gray-500 mt-1">Currently staying</p>
