@@ -1,10 +1,14 @@
 import mongoose from 'mongoose';
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/hostel-management';
+const MONGODB_URI = process.env.MONGODB_URI;
 
 if (!MONGODB_URI) {
-  throw new Error('Please define the MONGODB_URI environment variable inside .env.local');
+  if (process.env.NODE_ENV === 'production') {
+    throw new Error('CRITICAL: MONGODB_URI environment variable is not defined. Please add it to your Vercel Project Settings.');
+  }
 }
+
+const connectionString = MONGODB_URI || 'mongodb://127.0.0.1:27017/hostel-management';
 
 let cached = (global as any).mongoose;
 
@@ -25,7 +29,7 @@ export async function connectToDatabase() {
 
     console.log('Connecting to MongoDB...');
 
-    cached.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => {
+    cached.promise = mongoose.connect(connectionString, opts).then((mongoose) => {
       console.log('SUCCESS: Connected to MongoDB!');
       return mongoose;
     }).catch(err => {
