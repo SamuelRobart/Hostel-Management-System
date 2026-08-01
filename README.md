@@ -2,7 +2,6 @@
 
 [![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js)](https://nextjs.org/)
 [![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?logo=mongodb)](https://www.mongodb.com/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?logo=tailwind-css)](https://tailwindcss.com/)
 
 > **Live Deployment:** [https://hostel-management-system-one-taupe.vercel.app/](https://hostel-management-system-one-taupe.vercel.app/)
@@ -39,7 +38,7 @@ The application leverages a modern, full-stack JavaScript architecture:
 - **Backend**: Next.js API Routes (Serverless Functions) providing a robust RESTful API.
 - **Database**: MongoDB (Atlas) integrated via Mongoose with strict schema validation.
 - **Authentication**: Custom JWT-based authentication utilizing HTTP-only cookies for enhanced security.
-- **Type Safety**: End-to-end TypeScript implementation.
+- **Core**: Built entirely in standard JavaScript and JSX for maximum compatibility.
 
 ---
 
@@ -129,13 +128,13 @@ src/
 │   ├── warden/          # Warden management & routes
 │   ├── api/             # Serverless API endpoints
 │   ├── login/           # Authentication interfaces
-│   └── page.tsx         # Landing page
+│   └── page.jsx         # Landing page
 ├── lib/
-│   ├── mongodb.ts       # MongoDB connection client & utilities
-│   └── config.ts        # Global configuration constants
+│   ├── mongodb.js       # MongoDB connection client & utilities
+│   └── config.js        # Global configuration constants
 ├── models/              # Mongoose database schemas
 ├── utils/               # Helper functions & shared logic
-└── middleware.ts        # Next.js edge middleware for route protection
+└── middleware.js        # Next.js edge middleware for route protection
 ```
 
 ---
